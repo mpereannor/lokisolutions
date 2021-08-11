@@ -76,7 +76,7 @@ export default function Header() {
           <ContactButton
             as={"a"}
             href={"#"}
-            variant={"link"}
+            title='Contact Us'
           />
         </Stack>
       </Flex>
@@ -147,7 +147,6 @@ const DesktopSubNav = ({ label, href, subLabel }) =>
         display={"block"}
         p={2}
         rounded={"md"}
-        // _hover={{ bg: "pink.50" }}
         _hover={{ bg: "#d7f2f8" }}
       >
         <Stack direction={"row"} align={"center"}>
