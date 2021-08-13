@@ -8,8 +8,8 @@ export const ContactButton = ({ title }) => (
     px="8px"
     borderRadius="2px"
     fontWeight="semibold"
-    color="#24a9c5"
-    bg="#d7f2f8"
+    color="white"
+    bg="#24a9c5"
     _hover={{ color: "white", bg: "#285474" }}
   >
     {title}
