@@ -275,7 +275,7 @@ const NAV_ITEMS = [
     label: "Products",
     children: [
       {
-        label: "Inventory MangamentJob Board",
+        label: "Inventory Managament",
         subLabel: "Inventory management software that makes trakcing stock accurately",
         href: "#",
       },
@@ -286,7 +286,7 @@ const NAV_ITEMS = [
       },
       {
         label: "Susu Management System",
-        subLabel: "Simple to use app to manage your Sus(micro-finance) business",
+        subLabel: "Simple to use app to manage your Susu(micro-finance) business",
         href: "#",
       },
     ],

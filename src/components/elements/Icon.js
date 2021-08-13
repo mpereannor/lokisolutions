@@ -28,3 +28,27 @@ export const LogoIcon = createIcon({
     </g>
   ),
 });
+
+export const BackgroundLogoIcon = createIcon({
+  displayName: "BackgroundLogoIcon",
+  viewBox: "0 0 540 540",
+  path: (
+    <g fill="none">
+      <rect x="110" y="110" width="320" height="320" fill="#285474" />
+      <rect
+        x="340"
+        width="200"
+        height="200"
+        fill="#24A9C5"
+        fill-opacity="0.9"
+      />
+      <rect
+        y="340"
+        width="200"
+        height="200"
+        fill="#24A9C5"
+        fill-opacity="0.9"
+      />
+    </g>
+  ),
+});
