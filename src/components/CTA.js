@@ -16,6 +16,7 @@ import {
 import { Container } from "./Container";
 import { ChatButton, ContactButton } from "../components/elements/Button";
 import cta_office from "../assets/cta_office.png";
+import { ArrowDownIcon } from "@chakra-ui/icons";
 
 export function CTA() {
   return (
@@ -50,17 +51,18 @@ export function CTA() {
             direction={{ base: "column", sm: "row" }}
           >
             <ChatButton title="Lets Chat" variant="link" size="lg" />
+            {/* <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
+    Email
+  </Button> */}
 
             <Button
               fontWeight={"semibold"}
               px={8}
-              borderBottom="4px"
-              borderColor="#24a9c5"
-              _hover={{ borderColor: "gray.800" }}
               height="52px"
               lineHeight="1.2"
               borderRadius="2px"
               size="2xl"
+              rightIcon={<ArrowDownIcon boxSize='10%'/>}
             >
               Check out our Products
             </Button>
