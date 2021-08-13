@@ -29,7 +29,7 @@ export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box>
+    <Box position="sticky" zIndex="10" top="0">
       <Flex
         bg={"white"}
         color={"gray.800"}
@@ -73,11 +73,7 @@ export default function Header() {
           direction={"row"}
           spacing={6}
         >
-          <ContactButton
-            as={"a"}
-            href={"#"}
-            title='Contact Us'
-          />
+          <ContactButton as={"a"} href={"#"} title="Contact Us" />
         </Stack>
       </Flex>
 
@@ -102,7 +98,7 @@ const DesktopNav = () => {
               <Link
                 p={2}
                 href={navItem.href ?? "#"}
-                fontSize={"sm"}
+                fontSize={"xl"}
                 fontWeight={500}
                 color={linkColor}
                 _hover={{
@@ -137,44 +133,42 @@ const DesktopNav = () => {
   );
 };
 
-const DesktopSubNav = ({ label, href, subLabel }) =>
-  // : NavItem
-  {
-    return (
-      <Link
-        href={href}
-        role={"group"}
-        display={"block"}
-        p={2}
-        rounded={"md"}
-        _hover={{ bg: "#d7f2f8" }}
-      >
-        <Stack direction={"row"} align={"center"}>
-          <Box>
-            <Text
-              transition={"all .3s ease"}
-              _groupHover={{ color: "#24a9c5" }}
-              fontWeight={500}
-            >
-              {label}
-            </Text>
-            <Text fontSize={"sm"}>{subLabel}</Text>
-          </Box>
-          <Flex
+const DesktopSubNav = ({ label, href, subLabel }) => {
+  return (
+    <Link
+      href={href}
+      role={"group"}
+      display={"block"}
+      p={2}
+      rounded={"md"}
+      _hover={{ bg: "#d7f2f8" }}
+    >
+      <Stack direction={"row"} align={"center"}>
+        <Box>
+          <Text
             transition={"all .3s ease"}
-            transform={"translateX(-10px)"}
-            opacity={0}
-            _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
-            justify={"flex-end"}
-            align={"center"}
-            flex={1}
+            _groupHover={{ color: "#24a9c5" }}
+            fontWeight={500}
           >
-            <Icon color={"#24a9c5"} w={5} h={5} as={ChevronRightIcon} />
-          </Flex>
-        </Stack>
-      </Link>
-    );
-  };
+            {label}
+          </Text>
+          <Text fontSize={"sm"}>{subLabel}</Text>
+        </Box>
+        <Flex
+          transition={"all .3s ease"}
+          transform={"translateX(-10px)"}
+          opacity={0}
+          _groupHover={{ opacity: "100%", transform: "translateX(0)" }}
+          justify={"flex-end"}
+          align={"center"}
+          flex={1}
+        >
+          <Icon color={"#24a9c5"} w={5} h={5} as={ChevronRightIcon} />
+        </Flex>
+      </Stack>
+    </Link>
+  );
+};
 
 const MobileNav = () => {
   return (
@@ -186,87 +180,76 @@ const MobileNav = () => {
   );
 };
 
-const MobileNavItem = ({ label, children, href }) =>
-  // : NavItem
-  {
-    const { isOpen, onToggle } = useDisclosure();
+const MobileNavItem = ({ label, children, href }) => {
+  const { isOpen, onToggle } = useDisclosure();
 
-    return (
-      <Stack spacing={4} onClick={children && onToggle}>
-        <Flex
-          py={2}
-          as={Link}
-          href={href ?? "#"}
-          justify={"space-between"}
-          align={"center"}
-          _hover={{
-            textDecoration: "none",
-          }}
+  return (
+    <Stack spacing={4} onClick={children && onToggle}>
+      <Flex
+        py={2}
+        as={Link}
+        href={href ?? "#"}
+        justify={"space-between"}
+        align={"center"}
+        _hover={{
+          textDecoration: "none",
+        }}
+      >
+        <Text fontWeight={600} color={"gray.600"}>
+          {label}
+        </Text>
+        {children && (
+          <Icon
+            as={ChevronDownIcon}
+            transition={"all .25s ease-in-out"}
+            transform={isOpen ? "rotate(180deg)" : ""}
+            w={6}
+            h={6}
+          />
+        )}
+      </Flex>
+
+      <Collapse in={isOpen} animateOpacity style={{ marginTop: "0!important" }}>
+        <Stack
+          mt={2}
+          pl={4}
+          borderLeft={1}
+          borderStyle={"solid"}
+          borderColor={"gray.200"}
+          align={"start"}
         >
-          <Text fontWeight={600} color={"gray.600"}>
-            {label}
-          </Text>
-          {children && (
-            <Icon
-              as={ChevronDownIcon}
-              transition={"all .25s ease-in-out"}
-              transform={isOpen ? "rotate(180deg)" : ""}
-              w={6}
-              h={6}
-            />
-          )}
-        </Flex>
-
-        <Collapse
-          in={isOpen}
-          animateOpacity
-          style={{ marginTop: "0!important" }}
-        >
-          <Stack
-            mt={2}
-            pl={4}
-            borderLeft={1}
-            borderStyle={"solid"}
-            borderColor={"gray.200"}
-            align={"start"}
-          >
-            {children &&
-              children.map((child) => (
-                <Link key={child.label} py={2} href={child.href}>
-                  {child.label}
-                </Link>
-              ))}
-          </Stack>
-        </Collapse>
-      </Stack>
-    );
-  };
-
-//   interface NavItem {
-//     label: string;
-//     subLabel?: string;
-//     children?: Array<NavItem>;
-//     href?: string;
-//   }
+          {children &&
+            children.map((child) => (
+              <Link key={child.label} py={2} href={child.href}>
+                {child.label}
+              </Link>
+            ))}
+        </Stack>
+      </Collapse>
+    </Stack>
+  );
+};
 
 const NAV_ITEMS = [
-  //   : Array<NavItem>
   {
     label: "Services",
     children: [
       {
         label: "Consultancy",
-        subLabel: "we aim at identifying business problems and finding tailored software solutions to solve them",
+        subLabel:
+          "we aim at identifying business problems and finding tailored software solutions to solve them",
         href: "#",
       },
       {
         label: "Software Development",
-        subLabel: "we help build your dream software from conception, architecture, project design and implementation",
+        subLabel:
+          "we help build your dream software from conception, architecture, project design and implementation",
         href: "#",
       },
       {
         label: "Web Design/ Development",
-        subLabel: "we increase awareness/traffic to your brand with beautiful websites",
+        subLabel:
+          "we increase awareness/traffic to your brand with beautiful websites",
         href: "#",
       },
     ],
@@ -276,36 +259,39 @@ const NAV_ITEMS = [
     children: [
       {
         label: "Inventory Managament",
-        subLabel: "Inventory management software that makes trakcing stock accurately",
+        subLabel:
+          "Inventory management software that makes trakcing stock accurately",
         href: "#",
       },
       {
         label: "School Management System",
-        subLabel: "All-in-One information management system for your K12 school",
+        subLabel:
+          "All-in-One information management system for your K12 school",
         href: "#",
       },
       {
         label: "Susu Management System",
-        subLabel: "Simple to use app to manage your Susu(micro-finance) business",
+        subLabel:
+          "Simple to use app to manage your Susu(micro-finance) business",
         href: "#",
       },
     ],
   },
-//   {
-//     label: "Resources",
-//     children: [
-//       {
-//         label: "Job Board",
-//         subLabel: "Find your dream design job",
-//         href: "#",
-//       },
-//       {
-//         label: "Freelance Projects",
-//         subLabel: "An exclusive list for contract work",
-//         href: "#",
-//       },
-//     ],
-//   },
+  //   {
+  //     label: "Resources",
+  //     children: [
+  //       {
+  //         label: "Job Board",
+  //         subLabel: "Find your dream design job",
+  //         href: "#",
+  //       },
+  //       {
+  //         label: "Freelance Projects",
+  //         subLabel: "An exclusive list for contract work",
+  //         href: "#",
+  //       },
+  //     ],
+  //   },
   {
     label: "Blog",
     href: "#",
