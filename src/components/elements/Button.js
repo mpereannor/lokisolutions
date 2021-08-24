@@ -9,13 +9,13 @@ export const ContactButton = ({ title }) => (
     borderRadius="2px"
     fontWeight="semibold"
     color="white"
-    bg="#24a9c5"
-    _hover={{ color: "white", bg: "#285474" }}
+    bg="mainCyan"
+    _hover={{ color: "white", bg: "bgCadet" }}
   >
     {title}
   </Box>
 );
-export const ChatButton = ({ title }) => (
+export const ChatButton = ( { title }, ...props) => (
   <Box
     as="button"
     height="52px"

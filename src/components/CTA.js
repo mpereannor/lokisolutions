@@ -20,7 +20,6 @@ import { ArrowDownIcon } from "@chakra-ui/icons";
 
 export function CTA() {
   return (
-    <Container>
       <Stack
         align={"center"}
         spacing={{ base: 8, md: 10 }}
@@ -50,12 +49,19 @@ export function CTA() {
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}
           >
-            <ChatButton title="Lets Chat" variant="link" size="lg" />
-            {/* <Button leftIcon={<EmailIcon />} colorScheme="teal" variant="solid">
-    Email
-  </Button> */}
+            {/* <ChatButton 
+            title="Lets Chat" 
+            variant="link" 
+           size="lg" 
+           /> */}
+           <Button>
+             Let's Chat
+             </Button>
+           <Button>
+             Check out our products
+             </Button>
 
-            <Button
+            {/* <Button
               fontWeight={"semibold"}
               px={8}
               height="52px"
@@ -65,7 +71,7 @@ export function CTA() {
               rightIcon={<ArrowDownIcon boxSize='10%'/>}
             >
               Check out our Products
-            </Button>
+            </Button> */}
           </Stack>
         </Stack>
         <Flex
@@ -94,6 +100,5 @@ export function CTA() {
           </Box>
         </Flex>
       </Stack>
-    </Container>
   );
 }

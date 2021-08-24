@@ -29,7 +29,11 @@ export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box position="sticky" zIndex="10" top="0">
+    <Box
+    position="sticky"
+    top="0"
+    zIndex="10"
+    >
       <Flex
         bg={"white"}
         color={"gray.800"}
@@ -76,11 +80,10 @@ export default function Header() {
           <ContactButton as={"a"} href={"#"} title="Contact Us" />
         </Stack>
       </Flex>
-
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-    </Box>
+      </Box>
   );
 }
 
