@@ -22,18 +22,14 @@ import {
   ChevronRightIcon,
 } from "@chakra-ui/icons";
 
-import { LogoIcon } from "./elements/Icon";
+import { LogoIcon, NewLogoIcon } from "./elements/Icon";
 import { ContactButton } from "./elements/Button";
 
 export default function Header() {
   const { isOpen, onToggle } = useDisclosure();
 
   return (
-    <Box
-    position="sticky"
-    top="0"
-    zIndex="10"
-    >
+    <Box position="sticky" top="0" zIndex="10">
       <Flex
         bg={"white"}
         color={"gray.800"}
@@ -61,7 +57,7 @@ export default function Header() {
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <IconButton
             aria-label="home icon"
-            icon={<LogoIcon boxSize={14} />}
+            icon={<NewLogoIcon boxSize={"36"} />}
             href={"#"}
           />
 
@@ -83,7 +79,7 @@ export default function Header() {
       <Collapse in={isOpen} animateOpacity>
         <MobileNav />
       </Collapse>
-      </Box>
+    </Box>
   );
 }
 
@@ -104,6 +100,8 @@ const DesktopNav = () => {
                 fontSize={"xl"}
                 fontWeight={500}
                 color={linkColor}
+                whiteSpace="nowrap"
+                overflow="hidden"
                 _hover={{
                   textDecoration: "none",
                   color: linkHoverColor,

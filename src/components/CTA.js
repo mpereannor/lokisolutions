@@ -15,7 +15,6 @@ import {
 
 import { Container } from "./Container";
 import { ChatButton, ContactButton } from "../components/elements/Button";
-import cta_office from "../assets/cta_office.png";
 import { ArrowDownIcon } from "@chakra-ui/icons";
 
 export function CTA() {
@@ -49,15 +48,10 @@ export function CTA() {
             spacing={{ base: 4, sm: 6 }}
             direction={{ base: "column", sm: "row" }}
           >
-            {/* <ChatButton 
-            title="Lets Chat" 
-            variant="link" 
-           size="lg" 
-           /> */}
-           <Button>
+           <Button size="lg">
              Let's Chat
              </Button>
-           <Button>
+           <Button size="lg" rightIcon={<ArrowDownIcon color="mainCyan"/>}>
              Check out our products
              </Button>
 

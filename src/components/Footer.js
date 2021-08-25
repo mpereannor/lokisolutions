@@ -29,7 +29,7 @@ export default function Footer() {
        >
         <SimpleGrid columns={{ base: 1, sm: 2, md: 3 }} spacing={8}>
           <Stack align={"flex-start"}>
-            <ListHeader>Company</ListHeader>
+            {/* <ListHeader>Company</ListHeader> */}
               <Link href={"#"}>About Loki Solutions</Link>
             <HStack>
               <BiMap position="left" />
@@ -39,13 +39,13 @@ export default function Footer() {
             <Link href={"#"}>Contact Us</Link>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Legal</ListHeader>
+            {/* <ListHeader>Legal</ListHeader> */}
             <Link href={"#"}>Cookies Policy</Link>
             <Link href={"#"}>Privacy Policy</Link>
             <Link href={"#"}>Terms of Service</Link>
           </Stack>
           <Stack align={"flex-start"}>
-            <ListHeader>Follow Us</ListHeader>
+            {/* <ListHeader>Follow Us</ListHeader> */}
             <Link href={"#"}>Facebook</Link>
             <Link href={"#"}>Twitter</Link>
             <Link href={"#"}>WhatsApp</Link>
