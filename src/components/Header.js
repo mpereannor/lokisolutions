@@ -57,7 +57,7 @@ export default function Header() {
         <Flex flex={{ base: 1 }} justify={{ base: "center", md: "start" }}>
           <IconButton
             aria-label="home icon"
-            icon={<NewLogoIcon boxSize={"36"} />}
+            icon={<NewLogoIcon boxSize={{base:"24", md:"36"}} />}
             href={"#"}
           />
 
